@@ -1,0 +1,10 @@
+<a href="{% url 'index' %}" class="logo"></a>
+    <ul class="menu">
+        <li><a href="{% url 'index' %}"{% if request.resolver_match.url_name == 'index' %} class="active" {% endif %} > ДОМОЙ</a></li>
+        <li><a href="{% url 'products' %}" {% if request.resolver_match.url_name == 'products' %} class="active" {% endif %} >ПРОДУКТЫ</a></li>
+        <li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %} class="active" {% endif %}>КОНТАКТЫ</a></li>
+    </ul>
+<a href="#" class="search"></a>
+<a href="#" class="basket"></a>
+
+<!-- # доделать динамический список меню и товаров + динамический контент с помощью json -->
