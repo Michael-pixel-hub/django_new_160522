@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from geekshop.settings import BASE_DIR
-import json
+from mainapp.models import Product, Category
 
 
 def index(request):
@@ -11,9 +10,17 @@ def index(request):
 
 
 def products(request):
-    with open(BASE_DIR/"mainapp/json/content.json", 'r', encoding='utf-8') as file:
-        context = json.load(file)
+    context = {
+        'link_menu': Category.objects.all()
+    }
     return render(request, "mainapp/products.html", context)
+
+
+def products_list(request, pk):
+    context = {
+        'link_menu': Category.objects.all()
+    }
+    return render(request, 'mainapp/products.html', context)
 
 
 def contact(request):

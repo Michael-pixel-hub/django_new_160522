@@ -12,11 +12,7 @@
 {% block content %}
 		<div class="details">
 			<div class="links clearfix">
-				<ul class="links-menu">
-                    {% for el in menu %}
-                        <li><a href="#">{{ el }}</a></li>
-                    {% endfor %}
-				</ul>
+                {% include 'mainapp/icludes/inc_link_menu.html' %}
 			</div>
 
 			<div class="details-products">
