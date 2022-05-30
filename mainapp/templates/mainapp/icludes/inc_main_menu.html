@@ -3,6 +3,12 @@
         <li><a href="{% url 'index' %}"{% if request.resolver_match.url_name == 'index' %} class="active" {% endif %} > ДОМОЙ</a></li>
         <li><a href="{% url 'products:products_hot_product' %}" {% if request.resolver_match.url_name == 'products' %} class="active" {% endif %} >ПРОДУКТЫ</a></li>
         <li><a href="{% url 'contact' %}" {% if request.resolver_match.url_name == 'contact' %} class="active" {% endif %}>КОНТАКТЫ</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'authapp:edit' %}">{{ user.first_name|default:'Пользователь' }}</a></li>
+            <li><a href="{% url 'authapp:logout' %}">ВЫХОД</a></li>
+        {% else %}
+            <li><a href="{% url 'authapp:login' %}">ВХОД</a></li>
+        {% endif %}
     </ul>
 <a href="#" class="search"></a>
 <a href="#" class="basket"></a>

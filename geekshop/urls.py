@@ -25,7 +25,8 @@ urlpatterns = [
 
     path('', index, name='index'),
     path('products/', include('mainapp.urls', namespace='products')),
-    path('contact/', contact, name='contact')
+    path('contact/', contact, name='contact'),
+    path('auth/', include('authapp.urls', namespace='authapp'))
 ]
 
 if settings.DEBUG:

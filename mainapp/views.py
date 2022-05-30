@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mainapp.models import Product, Category
+from mainapp.models import Category
 
 
 def index(request):
