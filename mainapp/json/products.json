@@ -1,0 +1,83 @@
+[
+  {
+    "category": "дом",
+    "name": "дом1",
+    "image": "product/product-1.jpg",
+    "short_desc": "описание дома1",
+    "description": "длинное описание дома1",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "дом",
+    "name": "дом2",
+    "image": "product/product-2.jpg",
+    "short_desc": "описание дома2",
+    "description": "длинное описание дома2",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "офис",
+    "name": "офис1",
+    "image": "product/product-3.jpg",
+    "short_desc": "описание офиса1",
+    "description": "длинное описание офиса1",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "офис",
+    "name": "офис2",
+    "image": "product/product-4.jpg",
+    "short_desc": "описание офиса2",
+    "description": "длинное описание офиса2",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "модерн",
+    "name": "модерн1",
+    "image": "product/product-11.jpg",
+    "short_desc": "описание модерн1",
+    "description": "длинное описание модерн1",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "классика",
+    "name": "классика1",
+    "image": "product/product-21.jpg",
+    "short_desc": "описание классика1",
+    "description": "длинное описание классика1",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "модерн",
+    "name": "модерн2",
+    "image": "product/product-31.jpg",
+    "short_desc": "описание модерн2",
+    "description": "длинное описание модерн2",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "классика",
+    "name": "классика2",
+    "image": "product/product-41.jpg",
+    "short_desc": "описание классика2",
+    "description": "длинное описание классика2",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "дом",
+    "name": "дом3",
+    "image": "product/product-51.jpg",
+    "short_desc": "описание дома3",
+    "description": "длинное описание дома3",
+    "price": 1500,
+    "quantity": 2
+  }, {
+    "category": "дом",
+    "name": "дом4",
+    "image": "product/product-61.jpg",
+    "short_desc": "описание дома4",
+    "description": "длинное описание дома4",
+    "price": 1500,
+    "quantity": 2
+  }
+]
