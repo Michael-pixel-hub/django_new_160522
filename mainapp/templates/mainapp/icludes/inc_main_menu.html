@@ -11,6 +11,10 @@
         {% endif %}
     </ul>
 <a href="#" class="search"></a>
-<a href="#" class="basket"></a>
+<a href="#" class="basket">
+    <span style="display: block; margin-left: 30px; color: black">
+        {{ basket|length }}
+    </span>
+</a>
 
 <!-- # доделать динамический список меню и товаров + динамический контент с помощью json -->
