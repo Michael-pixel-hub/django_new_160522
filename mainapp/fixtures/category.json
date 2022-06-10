@@ -1,0 +1,42 @@
+[
+  {
+    "model": "mainapp.category",
+    "pk": 1,
+    "fields": {
+      "name": "все",
+      "description": "все"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 2,
+    "fields": {
+      "name": "дом",
+      "description": "Отличные дома"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 3,
+    "fields": {
+      "name": "офис",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 4,
+    "fields": {
+      "name": "модерн",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 5,
+    "fields": {
+      "name": "классика",
+      "description": "Хорошие места"
+    }
+  }
+]
