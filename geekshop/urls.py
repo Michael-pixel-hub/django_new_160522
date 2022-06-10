@@ -21,13 +21,14 @@ from django.conf.urls.static import static
 from django.conf.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 
     path('', index, name='index'),
     path('contact/', contact, name='contact'),
     path('products/', include('mainapp.urls')),
     path('auth/', include('authapp.urls')),
-    path('basket/', include('basketapp.urls'))
+    path('basket/', include('basketapp.urls')),
+    path('admin/', include('adminapp.urls'))
 ]
 
 if settings.DEBUG:
