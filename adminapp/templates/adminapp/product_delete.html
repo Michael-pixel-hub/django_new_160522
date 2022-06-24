@@ -1,0 +1,12 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="user_delete">
+        Уверены, что хотите удалить товар {{ object.name }} {{ object.category.name }}?
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success">Уверен</button>
+            <a class="btn btn-info" href="{% url 'adminapp:users' %}">Отмена</a>
+        </form>
+    </div>
+{% endblock %}
