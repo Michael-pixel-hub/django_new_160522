@@ -1,5 +1,5 @@
 {% extends 'adminapp/base.html' %}
-{% load static %}
+{% load tags static %}
 {% block content %}
     <div class="users_list">
         <button class="new_user">
@@ -7,10 +7,10 @@
                 новый пользователь
             </a>
         </button>
-        {% for object in users_list %}
+        {% for object in object_list %}
             <div class="user_record {% if object.is_active %}active{% else %}not_active{% endif %}">
                 <img
-                        src="{% if object.avatar %}/media/{{ object.avatar }}{% else %}{% static 'img/default.jpg' %} {% endif %}"
+                        src="{{ object.avatar|media_for_users }}"
                         alt="{{ object.username }}">
                 <div class="user_role">
                     {% if object.is_superuser %}
@@ -54,5 +54,19 @@
                 </div>
             </div>
         {% endfor %}
+        <div class="paginator">
+            {% if page_obj.has_previous %}
+{#                        <a href="{% url 'products:page' category.pk products.previous_page_number %}">back</a>#}
+                <a href="?page={{ page_obj.previous_page_number }}">back</a>
+            {% endif %}
+            <span class="current">
+                страница {{ page_obj.number }} из
+                {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next %}
+{#                        <a href="{% url 'products:page' category.pk products.next_page_number %}">next</a>#}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

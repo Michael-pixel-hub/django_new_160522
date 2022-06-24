@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from basketapp.models import Basket
 from mainapp.models import Category, Product
 from mainapp.services import get_basket, get_hot_product, get_same_product
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
@@ -18,26 +19,30 @@ def products(request, pk=None):
 
     if pk is not None:
         if pk == 1:
-
-            context = {
-                'links_menu': links_menu,
-                'category': {'name': 'все'},
-                'products': Product.objects.all().order_by('price'),
-                'basket': get_basket(request.user)
-            }
-
-            return render(request, "mainapp/products_list.html", context)
+            products_list = Product.objects.all().order_by('price')
+            category = {'name': 'все', 'pk': 1}
 
         else:
+            products_list = Product.objects.filter(category__pk=pk).order_by('price')
+            category = get_object_or_404(Category, pk=pk)
 
-            context = {
-                'links_menu': links_menu,
-                'category': get_object_or_404(Category, pk=pk),
-                'products': Product.objects.filter(category__pk=pk).order_by('price'),
-                'basket': get_basket(request.user)
-            }
+        page = request.GET.get('page')
+        paginator = Paginator(products_list, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
 
-            return render(request, "mainapp/products_list.html", context)
+        context = {
+            'links_menu': links_menu,
+            'category': category,
+            'products': products_paginator,
+            'basket': get_basket(request.user)
+        }
+
+        return render(request, "mainapp/products_list.html", context)
 
     context = {
         'links_menu': links_menu,

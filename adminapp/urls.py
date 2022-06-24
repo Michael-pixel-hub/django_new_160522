@@ -1,24 +1,24 @@
 from django.urls import path
-from adminapp.views import user_create, users, user_update, user_delete
-from adminapp.views import category_create, categories, category_update, category_delete
-from adminapp.views import product_create, products, product_read, product_update, product_delete
+from adminapp.views import user_create, user_delete, UserListView, UserUpdateView
+from adminapp.views import CategoryCreateView, categories, category_update, category_delete
+from adminapp.views import product_create, ProductListView, product_update, ProductDetailView, ProductDeleteView
 
 app_name = 'adminapp'
 
 urlpatterns = [
     path('users/create/', user_create, name='user_create'),
-    path('users/read/', users, name='users'),
-    path('users/update/<int:pk>/', user_update, name='user_update'),
+    path('users/read/', UserListView.as_view(), name='users'),
+    path('users/update/<int:pk>/', UserUpdateView.as_view(), name='user_update'),
     path('users/delete/<int:pk>/', user_delete, name='user_delete'),
 
-    path('categories/create/', category_create, name='category_create'),
+    path('categories/create/', CategoryCreateView.as_view(), name='category_create'),
     path('categories/read/', categories, name='categories_read'),
     path('categories/update/<int:pk>/', category_update, name='category_update'),
     path('categories/delete/<int:pk>/', category_delete, name='category_delete'),
 
     path('products/create/category/<int:pk>', product_create, name='product_create'),
-    path('products/read/category/<int:pk>', products, name='products'),
-    path('products/read/<int:pk>', product_read, name='product_read'),
+    path('products/read/category/<int:pk>', ProductListView.as_view(), name='products'),
+    path('products/read/<int:pk>', ProductDetailView.as_view(), name='product_read'),
     path('products/update/<int:pk>', product_update, name='product_update'),
-    path('products/delete/<int:pk>', product_delete, name='product_delete'),
+    path('products/delete/<int:pk>', ProductDeleteView.as_view(), name='product_delete'),
 ]
